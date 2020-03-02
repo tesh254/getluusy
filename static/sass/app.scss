@@ -1,0 +1,29 @@
+@import "./variables";
+
+// Component based scss
+@import "./nav.scss";
+
+body {
+  color: black;
+  background: white;
+  margin: 0;
+  padding: 0;
+  font-family: $default-font;
+}
+
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: $scroll-2-color;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: $scroll-color;
+}
+
+main {
+  margin-left: 5rem;
+  padding: 1rem;
+}

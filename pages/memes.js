@@ -3,21 +3,16 @@ import { connect } from "react-redux";
 import Head from "../components/head";
 import Nav from "../components/nav";
 
-class Home extends React.Component {
+class Memes extends React.Component {
   static async getInitialProps(props) {
     const { store, isServer } = props;
     return { isServer };
   }
 
   render() {
-    return (
-      <div className="container">
-        <Head title="Just Landed - Get Luusy" />
-        <Nav />
-        <main>Just landed</main>
-      </div>
-    );
+    <div className="container">
+      <Head title="Memes - Get Luusy" description="The best memes on the internet" />
+      <Nav />
+    </div>;
   }
 }
-
-export default connect(null, null)(Home);

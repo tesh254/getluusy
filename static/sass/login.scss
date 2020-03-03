@@ -1,0 +1,44 @@
+.auth__holder {
+  margin-top: 15%;
+
+  .auth__hold-container {
+    display: flex;
+    justify-content: center;
+
+    .auth__input {
+      max-width: 300px;
+
+      .login__text {
+        text-align: center;
+        font-family: $lucky-guy;
+        font-size: 32px;
+      }
+
+      .auth__button {
+        background-color: white;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+
+        .auth__login-btn {
+          display: inline-block;
+          vertical-align: middle;
+          margin: 8px 0 8px 8px;
+          width: 18px;
+          height: 18px;
+          box-sizing: border-box;
+        }
+
+        .auth__login-text {
+          display: inline-block;
+          vertical-align: middle;
+          padding: 0 24px;
+          font-size: 14px;
+          font-weight: 14px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

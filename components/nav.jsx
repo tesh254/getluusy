@@ -1,6 +1,31 @@
 import React from "react";
+import { auth } from "../firebase";
 
 class Navbar extends React.Component {
+  state = {
+    auth: false,
+    photoUrl: "",
+    uid: ""
+  };
+
+  componentDidMount() {
+    auth.onAuthStateChanged(authUser => {
+      console.log(authUser);
+
+      if (authUser) {
+        this.setState({
+          auth: true,
+          photoUrl: authUser.photoURL,
+          uid: authUser.uid
+        });
+      } else {
+        this.setState({
+          auth: false
+        });
+      }
+    });
+  }
+
   render() {
     return (
       <nav className="navbar">
@@ -24,17 +49,30 @@ class Navbar extends React.Component {
             </a>
           </li>
           <li className="nav-item">
-            <a href="/geek" className="nav-link">
-              <img src="/static/images/geek.svg" alt="geek" />
-              <span className="link-text">Geek</span>
-            </a>
-          </li>
-          <li className="nav-item">
             <a href="/tags" className="nav-link">
-              <img src="/static/images/tags.svg" alt="glasses" />
-              <span className="link-text">Nerd</span>
+              <img src="/static/images/tags.svg" alt="geek" />
+              <span className="link-text">Tags</span>
             </a>
           </li>
+          {this.state.auth === true ? (
+            <li className="nav-item">
+              <a className="nav-link" href={`/zone/${this.state.uid}`}>
+                <img
+                  className="photo__url"
+                  src={this.state.photoUrl}
+                  alt="user"
+                />
+                <span className="link-text">Zone</span>
+              </a>
+            </li>
+          ) : (
+            <li className="nav-item">
+              <a href="/login" className="nav-link">
+                <img src="/static/images/user.svg" alt="glasses" />
+                <span className="link-text">Zone</span>
+              </a>
+            </li>
+          )}
         </ul>
       </nav>
     );

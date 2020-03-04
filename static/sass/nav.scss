@@ -29,11 +29,18 @@
         .link-text {
           display: none;
           margin-left: 1rem;
-          background: black;
+          background: rgb(255, 204, 0);
+          background: linear-gradient(
+            90deg,
+            rgba(255, 204, 0, 1) 0%,
+            rgba(155, 69, 228, 1) 69%
+          );
           margin: 5px;
+          // border: 1px solid white;
           width: auto;
           padding: 5px;
           border-radius: 5px;
+          font-weight: bold;
         }
 
         &:hover {
@@ -113,12 +120,12 @@
           justify-content: center;
 
           .link-text {
-              display: none;
+            display: none;
           }
 
           &:before {
             .link-text {
-                display: none;
+              display: none;
             }
           }
         }

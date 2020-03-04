@@ -3,13 +3,16 @@
 // Component based scss
 @import "./nav.scss";
 @import "./login.scss";
+@import "./loader.scss";
+@import "./back.scss";
+@import "./profile.scss";
 
 body {
   color: white;
-  background: black;
+  background: $bg-color;
   margin: 0;
   padding: 0;
-  font-family: $default-font;
+  font-family: $font-light;
 }
 
 body::-webkit-scrollbar {

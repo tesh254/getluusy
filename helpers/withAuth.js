@@ -1,6 +1,8 @@
 import React from "react";
 import router from "next/router";
 import { auth } from "../firebase";
+import Navbar from "../components/nav";
+import Loader from "../components/loader"
 
 const withAuth = Component => {
   return class extends React.Component {
@@ -8,10 +10,13 @@ const withAuth = Component => {
       status: "LOADING"
     };
 
+    static async getInitialProps(props) {
+      const { store, isServer } = props;
+      return { isServer };
+    }
+
     componentDidMount() {
       auth.onAuthStateChanged(authUser => {
-        console.log(authUser);
-
         if (authUser) {
           this.setState({
             status: "SIGNED_IN"
@@ -26,14 +31,21 @@ const withAuth = Component => {
       const { status } = this.state;
 
       if (status === "LOADING") {
-        return <h1>Loading...</h1>;
+        return (
+          <div className="container">
+            <Navbar />
+            <main>
+              <Loader />
+            </main>
+          </div>
+        );
       } else if (status === "SIGNED_IN") {
         return <Component {...this.props} />;
       }
     };
 
     render() {
-      return <React.Fragment>{this.renderContent}</React.Fragment>;
+      return <React.Fragment>{this.renderContent()}</React.Fragment>;
     }
   };
 };

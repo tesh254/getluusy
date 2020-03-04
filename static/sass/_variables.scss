@@ -1,12 +1,36 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300&display=swap");
-@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap");
 
+@font-face {
+  font-family: "Netflix-bold";
+  src: url("https://res.cloudinary.com/duoxba7n1/raw/upload/v1579754765/Netflix_Sans_Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Netflix-light";
+  src: url("https://res.cloudinary.com/duoxba7n1/raw/upload/v1579754765/Netflix_Sans_Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Netflix-medium";
+  src: url("https://res.cloudinary.com/duoxba7n1/raw/upload/v1579754765/Netflix_Sans_Medium.otf") format("opentype");
+}
+// Font variables
+$font-light: "Netflix-light", serif;
+$font-bold: "Netflix-bold", serif;
+$font-medium: "Netflix-medium", serif;
 $default-font: "Roboto";
 $lucky-guy: "Luckiest Guy";
+$netflix-medium-font: "netflixmedium";
+$netflix-light-font: "netflixlight";
+$netflix-bold-font: "netflixbold";
 $text-primary: #b6b6b6;
 $text-secondary: #ececec;
 $bg-primary: #23232e;
 $bg-secondary: #141418;
 $transition-speed: 600ms;
-$scroll-color: rgb(155, 69, 228);
+$scroll-color: #9b45e4;
 $scroll-2-color: #1e1e24;
+$yellow-color: #ffcc00;
+$bg-color: #31323B;
+$grey-color: #6e767d;

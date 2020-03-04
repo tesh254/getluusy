@@ -10,8 +10,6 @@ class Navbar extends React.Component {
 
   componentDidMount() {
     auth.onAuthStateChanged(authUser => {
-      console.log(authUser);
-
       if (authUser) {
         this.setState({
           auth: true,
@@ -37,15 +35,15 @@ class Navbar extends React.Component {
             </a>
           </li>
           <li className="nav-item">
-            <a href="/memes" className="nav-link">
-              <img src="/static/images/cat.svg" alt="cats" />
-              <span className="link-text">Memes</span>
-            </a>
-          </li>
-          <li className="nav-item">
             <a href="/explore" className="nav-link">
               <img src="/static/images/explore.svg" alt="explore" />
               <span className="link-text">Explore</span>
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="/memes" className="nav-link">
+              <img src="/static/images/cat.svg" alt="cats" />
+              <span className="link-text">Memes</span>
             </a>
           </li>
           <li className="nav-item">
@@ -56,7 +54,7 @@ class Navbar extends React.Component {
           </li>
           {this.state.auth === true ? (
             <li className="nav-item">
-              <a className="nav-link" href={`/zone/${this.state.uid}`}>
+              <a className="nav-link" href={`/zone`}>
                 <img
                   className="photo__url"
                   src={this.state.photoUrl}

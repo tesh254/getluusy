@@ -14,7 +14,9 @@ class Home extends React.Component {
       <div className="container">
         <Head title="Just Landed - Get Luusy" />
         <Nav />
-        <main>Just landed</main>
+        <main>
+          Just landed
+        </main>
       </div>
     );
   }

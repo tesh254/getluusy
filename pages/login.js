@@ -13,27 +13,43 @@ class Login extends React.Component {
   }
 
   handleSignIn = () => {
-      var provider = new firebase.auth.GoogleAuthProvider();
+    var provider = new firebase.auth.GoogleAuthProvider();
 
-    //   provider.addScope('https://www.googleapis.com/auth/contacts.readonly')
-
-      auth.signInWithPopup(provider).then(() => {
-          router.push("/")
+    auth
+      .signInWithPopup(provider)
+      .then(() => {
+        router.push("/");
       })
       .catch(err => {
-          alert("Oops something went wrong while opening a door for you")
-          console.log(err)
+        alert("Oops something went wrong while opening a door for you");
+        console.log(err);
+      });
+  };
+
+  handleTwitterSignIn = () => {
+    var provider = new firebase.auth.TwitterAuthProvider();
+
+    auth
+      .signInWithPopup(provider)
+      .then(() => {
+        router.push("/");
       })
-  }
+      .catch(err => {
+        alert("Oops something went wrong while opening a door for you");
+      });
+  };
 
   handleLogout = () => {
-      auth.signOut().then(() => {
-          alert('We hope to see you again')
-      }).catch(err => {
-          alert("Oops something went wrong, kicking you out")
-          console.log(err)
+    auth
+      .signOut()
+      .then(() => {
+        alert("We hope to see you again");
       })
-  }
+      .catch(err => {
+        alert("Oops something went wrong, kicking you out");
+        console.log(err);
+      });
+  };
 
   render() {
     return (
@@ -46,12 +62,18 @@ class Login extends React.Component {
               <div className="auth__input">
                 <span className="login__text">Wanna Join??</span>
                 <br />
-                <br/>
+                <br />
                 <button className="auth__button" onClick={this.handleSignIn}>
                   <span className="auth__login-btn">
                     <img src="/static/images/google.svg" alt="google" />
                   </span>
                   <span className="auth__login-text">Sign in with Google</span>
+                </button>
+                <button className="auth__button" onClick={this.handleSignIn}>
+                  <span className="auth__login-btn">
+                    <img src="/static/images/twitter.svg" alt="twitter" />
+                  </span>
+                  <span className="auth__login-text">Sign in with Twitter</span>
                 </button>
               </div>
             </div>

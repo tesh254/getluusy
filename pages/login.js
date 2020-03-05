@@ -22,7 +22,6 @@ class Login extends React.Component {
       })
       .catch(err => {
         alert("Oops something went wrong while opening a door for you");
-        console.log(err);
       });
   };
 
@@ -47,7 +46,6 @@ class Login extends React.Component {
       })
       .catch(err => {
         alert("Oops something went wrong, kicking you out");
-        console.log(err);
       });
   };
 
@@ -69,7 +67,8 @@ class Login extends React.Component {
                   </span>
                   <span className="auth__login-text">Sign in with Google</span>
                 </button>
-                <button className="auth__button" onClick={this.handleSignIn}>
+                <br/>
+                <button className="auth__button" onClick={this.handleTwitterSignIn}>
                   <span className="auth__login-btn">
                     <img src="/static/images/twitter.svg" alt="twitter" />
                   </span>

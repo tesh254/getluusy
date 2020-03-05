@@ -1,6 +1,6 @@
 .profile__container {
   margin: 0;
-  padding: 25px;
+  padding: 2px;
   display: flex;
   justify-content: center !important;
   align-items: center;
@@ -34,6 +34,42 @@
       font-size: 20px;
       line-height: 26px;
       // position: absolute;
+
+      .more__details {
+        .profile__unique-name {
+          color: $grey-color;
+          font-size: 11pt;
+        }
+
+        .profile__unique-name::before {
+          content: "@"
+        }
+
+        .profile__bio {
+          color: $grey-color;
+          font-size: 11pt;
+        }
+
+        .profile__socials {
+          width: auto;
+          margin: 5px;
+
+          .profile__social-item {
+            text-decoration: none;
+            color: inherit;
+            margin: 10px;
+            filter: grayscale(100);
+
+            img {
+              width:35px !important;
+            }
+          }
+
+          .profile__social-item:hover {
+            filter: grayscale(0);
+          }
+        }
+      }
 
       .profile__join-date {
         color: $grey-color;
